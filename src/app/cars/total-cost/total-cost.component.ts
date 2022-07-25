@@ -7,13 +7,13 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class TotalCostComponent {
 
-  private VAT : number = 1.23;
+  private VAT: number = 1.23;
 
   @Input()
-  totalCost!: any; // checking problem w/o initializing field with type number.
+  totalCost: number = 0;
 
   @Output()
-  shownGross : EventEmitter<number> = new EventEmitter<number>();
+  shownGross: EventEmitter<number> = new EventEmitter<number>();
 
   showGross(): void {
     this.shownGross.emit(this.totalCost * this.VAT)
