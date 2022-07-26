@@ -16,6 +16,6 @@ export class TotalCostComponent {
   shownGross: EventEmitter<number> = new EventEmitter<number>();
 
   showGross(): void {
-    this.shownGross.emit(this.totalCost * this.VAT)
+    this.shownGross.emit(this.totalCost * this.VAT);
   }
 }

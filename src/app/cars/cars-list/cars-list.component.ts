@@ -12,7 +12,7 @@ export class CarsListComponent implements OnInit {
   @ViewChild("totalCostRef") totalCostRef!: TotalCostComponent
   totalCost: number = 0;
   grossCost: number = 0;
-  cars: Car[] = [];
+  cars: Array<Car> = [];
 
   constructor(private carsService: CarsService) {
   }
@@ -21,9 +21,12 @@ export class CarsListComponent implements OnInit {
     this.loadCars();
   }
 
-  loadCars(): void {
-    this.carsService.getCars().subscribe((cars:Car[]) => this.cars = cars);
-    this.countTotalCost();
+
+  loadCars() : void {
+    this.carsService.getCars().subscribe((cars) => {
+      this.cars = cars;
+      this.countTotalCost();
+    });
   }
 
   showGross(): void {
@@ -31,16 +34,17 @@ export class CarsListComponent implements OnInit {
   }
 
   countTotalCost(): void {
-    // if (this.cars.length === 0) {
-    //   return;
-    // }
+    if (this.cars.length === 0) {
+      return;
+    }
     this.totalCost = this.cars
       .map((car) => car.cost)
-      .reduce((totalCost, carCost) => totalCost + carCost)
+      .reduce((totalCost, carCost) => totalCost + carCost);
   }
 
   onShownGross(grossCost: number): void {
     this.grossCost = grossCost;
   }
+
 
 }
