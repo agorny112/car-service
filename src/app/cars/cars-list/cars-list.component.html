@@ -1,3 +1,9 @@
+<cs-header>
+  <p levels>cars</p>
+  <div content>
+    <p>Some text</p>
+  </div>
+</cs-header>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -34,12 +40,13 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <button (click)="showGross()" class="btn btn-primary btn-sm-align-left">
+      <button (click)="showGross()" class="btn btn-primary btn-sm float-end">
         SHOW GROSS
       </button>
     </div>
   </div>
   <cs-total-cost #totalCostRef [totalCost]="totalCost" (shownGross)="onShownGross($event)"></cs-total-cost>
+
   <div class="row" *ngIf="grossCost">
     <div class="col-sm-12">
       <div class="gross-cost">
