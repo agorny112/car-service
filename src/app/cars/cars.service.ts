@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Car} from "./models/car";
 import {HttpClient} from "@angular/common/http";
 import 'rxjs';
 import '@angular/common/http';
@@ -16,5 +15,9 @@ export class CarsService {
 
   getCars() {
     return this.http.get<any>(this.getCarsUrl);
+  }
+
+  getCar(id: number) {
+    return this.http.get<any>(this.getCarsUrl + `/${id}`);
   }
 }
