@@ -4,13 +4,15 @@ import { HeaderComponent } from './header/header.component';
 import {RouterModule} from "@angular/router";
 import { SurnameShortcutPipe } from './pipes/surname-shortcut.pipe';
 import { ImportantDirective } from './directives/important.directive';
+import { MyCurrencyPipe } from './pipes/myCurrency.pipe';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SurnameShortcutPipe,
-    ImportantDirective
+    ImportantDirective,
+    MyCurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ImportantDirective } from './directives/important.directive';
   exports: [
     HeaderComponent,
     SurnameShortcutPipe,
-    ImportantDirective
+    ImportantDirective,
+    MyCurrencyPipe
   ]
 })
 export class SharedModule { }

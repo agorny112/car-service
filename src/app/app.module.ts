@@ -8,6 +8,7 @@ import {CarsService} from "./cars/cars.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CoreModule} from "./core-module/core.module";
 import {CarsRoutingModule} from "./cars/cars-routing-module";
+import '@angular/common/locales/global/pl';
 
 @NgModule({
   declarations: [

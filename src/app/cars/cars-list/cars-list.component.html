@@ -28,7 +28,7 @@
           <td>{{car?.deliveryDate | date:'longDate'}}</td>
           <td>{{car?.deadline | date:'longDate'}}</td>
           <td>{{car?.clientFirstName}} {{car?.clientSurname | surnameShortcut}}</td>
-          <td>{{car?.cost | currency: 'PLN' : true}}</td>
+          <td>{{car?.cost | myCurrency}}</td>
           <td>{{car?.year}}</td>
           <td (click)="removeCar(car, $event)">(X)</td>
         </tr>
