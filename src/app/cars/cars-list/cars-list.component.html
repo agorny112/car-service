@@ -67,6 +67,9 @@
       <div class="col-sm-4">
       <label>Model</label>
       <input formControlName="model" type="text" class="form-control" placeholder="Model">
+        <p *ngIf="!carForm.controls['model'].valid && carForm.controls['model'].dirty" class="error">
+          This field is required!
+        </p>
       </div>
       <div class="col-sm-4">
         <label>Type</label>
@@ -75,6 +78,9 @@
       <div class="col-sm-4">
         <label>Plate</label>
         <input formControlName="plate" type="text" class="form-control" placeholder="Plate">
+        <p *ngIf="!carForm.controls['plate'].valid && carForm.controls['plate'].dirty" class="error">
+          This field is required and must contain 3-7 characters!
+        </p>
       </div>
     </div>
     <div class="row form-group">
@@ -123,12 +129,17 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <button type="submit" class="btn btn-primary float-end">Add car</button>
+        <button [disabled]="carForm.invalid" type="submit" (click)="addCar()" class="btn btn-primary float-end">Add car</button>
+        <button  class="btn btn-secondary float-end" (click)="carForm.reset()">Reset</button>
       </div>
     </div>
   </form>
 
   <pre> {{carForm.value | json}}</pre>
+  <pre> Model?:{{carForm.controls['model'].valid | json}}</pre>
+  <pre> Plate?:{{carForm.controls['plate'].valid | json}}</pre>
+  <pre> Form?:{{carForm.valid | json}}</pre>
+
 </div>
 
 

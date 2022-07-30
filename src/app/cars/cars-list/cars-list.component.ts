@@ -32,12 +32,12 @@ export class CarsListComponent implements OnInit {
       model: ['', Validators.required],
       type: '',
       plate: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(7)]],
-      deliveryDate: '',
-      deadline: '',
+      deliveryDate: ['', Validators.required],
+      deadline: ['', Validators.required],
       color: '',
       power: '',
-      clientFirstName: '',
-      clientSurname: '',
+      clientFirstName: ['', Validators.required],
+      clientSurname: ['', Validators.required],
       cost: '',
       isFullyDamaged: '',
       year:''
@@ -71,6 +71,12 @@ export class CarsListComponent implements OnInit {
 
   goToCarDetails(car: Car) {
     this.router.navigate(['/cars', car.id]);
+  }
+
+  addCar() {
+    this.carsService.addCar(this.carForm.value).subscribe(() =>{
+      this.loadCars();
+    })
   }
 
 
