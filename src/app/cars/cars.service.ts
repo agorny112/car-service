@@ -14,20 +14,24 @@ export class CarsService {
   constructor(private http: HttpClient) {
   }
 
-  getCars() {
+  getCars(): Observable<any> {
     return this.http.get<any>(this.getCarsUrl);
   }
 
-  getCar(id: number) {
+  getCar(id: number) : Observable<any> {
     return this.http.get<any>(this.getCarsUrl + `/${id}`);
   }
 
-  updateCar(id: number, data : any) {
+  updateCar(id: number, data : any) : Observable<any> {
     return this.http.put<any>(this.getCarsUrl + `/${id}`, data);
   }
 
   addCar(data : any) : Observable<any> {
     return this.http.post<any>(this.getCarsUrl, data);
+  }
+
+  removeCar(id: number) : Observable<any> {
+    return this.http.delete<any>(this.getCarsUrl + `/${id}`);
   }
 
 

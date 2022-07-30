@@ -79,6 +79,11 @@ export class CarsListComponent implements OnInit {
     })
   }
 
+  removeCar(car : Car, event : Event) {
+    event.stopPropagation();
+    this.carsService.removeCar(car.id).subscribe(() => this.loadCars());
+  }
+
 
 
 }
